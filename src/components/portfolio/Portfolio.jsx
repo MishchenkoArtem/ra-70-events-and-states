@@ -1,27 +1,25 @@
 import { useState } from 'react';
+import { data, filters } from '../constans';
 import Toolbar from '../Toolbar/Toolbar';
+import ProjectList from '../ProjectList/ProjectList'
 
 export default function Portfolio() {
-    let [stateClassName, setStateClassName] = useState('');
+    const [selected, setSelected] = useState('All');
+    const photoCards = filterData();
 
-    function setNewClassName (event) {
-        // setStateClassName(stateClassName = `${event.target.className} active`);
-        const target = event.target.className;
-        target.classList.add('active');
-        console.log(target);
+    function onSelectFilter (filter) {
+        setSelected({ selected: filter.target.textContent });
+    }
+
+    function filterData () {
+        if (selected.selected === 'All') return data;
+        return data.filter(current => current.category === selected.selected);
     }
 
     return (
         <>
-            <Toolbar
-                filters={[
-                    'All',
-                    'Websites',
-                    'Flayers',
-                    'Business Cards'
-                ]}
-                selector={stateClassName}
-                onSelectFilter={setNewClassName} />
+            <Toolbar filters={filters} selected={selected} onSelectFilter={onSelectFilter} />
+            <ProjectList data={photoCards} />
         </>
     );
 }

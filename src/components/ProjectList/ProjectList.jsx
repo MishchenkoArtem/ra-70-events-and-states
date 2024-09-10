@@ -1,6 +1,4 @@
-import { data } from '../constans';
-
-export default function ProjectList () {
+export default function ProjectList ({data}) {
     const portfolioItem = data.map(function (currentValue) {
         return (
             <img className="portfolio__image" src={currentValue.img} alt="" />
