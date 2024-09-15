@@ -1,30 +1,16 @@
-export default function Toolbar (props) {
+export default function Toolbar ({ selected, filters, onSelectFilter }) {
     return (
         <div className="toolbar">
-            <button
-                onClick={props.onSelectFilter}
-                className={`toolbar__button ${props.selected.classValue}`}
-                type="button">
-                    All
-            </button>
-            <button
-                onClick={props.onSelectFilter}
-                className={`toolbar__button ${props.selected.classValue}`}
-                type="button">
-                    Websites
-            </button>
-            <button
-                onClick={props.onSelectFilter}
-                className={`toolbar__button ${props.selected.classValue}`}
-                type="button">
-                    Flayers
-            </button>
-            <button
-                onClick={props.onSelectFilter}
-                className={`toolbar__button ${props.selected.classValue}`}
-                type="button">
-                    Business Cards
-            </button>
+            { filters.map((item) => {
+                return (
+                    <button
+                        className={`toolbar__button ${selected === item.title || selected.selected === item.title ? 'active' : 'All'}`}
+                        onClick={ onSelectFilter }
+                    >
+                        {item.title}
+                    </button>
+                );
+            })}
         </div>
     );
-};
+}

@@ -70,8 +70,16 @@ export const data = [
 ];
 
 export const filters = [
-    "All", 
-    "Websites", 
-    "Flayers", 
-    "Business Cards"
+    {
+        title: 'All'
+    },
+    {
+        title: 'Websites'
+    },
+    {
+        title: 'Flayers'
+    },
+    {
+        title: 'Business Cards'
+    }
 ];

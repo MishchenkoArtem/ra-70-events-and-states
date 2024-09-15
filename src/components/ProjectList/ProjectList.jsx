@@ -1,13 +1,15 @@
-export default function ProjectList ({data}) {
-    const portfolioItem = data.map(function (currentValue) {
-        return (
-            <img className="portfolio__image" src={currentValue.img} alt="" />
-        );
-    });
-
+export default function ProjectList ({ dataElements }) {
     return (
-        <div className='portfolio'>
-            {portfolioItem}
+        <div className="portfolio">
+            {dataElements.map((item) => {
+                return (
+                    <img
+                        className="portfolio__image"
+                        src={item.img}
+                        alt={item.category}
+                    />
+                );
+            })};
         </div>
     );
-};
+}

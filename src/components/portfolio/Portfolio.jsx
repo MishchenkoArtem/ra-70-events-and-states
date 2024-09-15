@@ -1,25 +1,30 @@
 import { useState } from 'react';
 import { data, filters } from '../constans';
 import Toolbar from '../Toolbar/Toolbar';
-import ProjectList from '../ProjectList/ProjectList'
+import ProjectList from '../ProjectList/ProjectList';
 
-export default function Portfolio() {
+export default function Portfolio () {
     const [selected, setSelected] = useState('All');
-    const photoCards = filterData();
 
-    function onSelectFilter (filter) {
-        setSelected({ selected: filter.target.textContent });
+    const onSelectFilter = (event) => {
+        setSelected({ selected : event.target.textContent });
+    };
+
+    const filtersElements = (data) => {
+        if ( selected === 'All' ||  selected.selected === 'All') {
+            return data;
+        } else {
+            return data.filter(current => current.category === selected.selected);
+        }
     }
 
-    function filterData () {
-        if (selected.selected === 'All') return data;
-        return data.filter(current => current.category === selected.selected);
-    }
+    const dataElements = filtersElements(data);
+    console.log(selected);
 
     return (
         <>
-            <Toolbar filters={filters} selected={selected} onSelectFilter={onSelectFilter} />
-            <ProjectList data={photoCards} />
+            <Toolbar selected={ selected } filters={ filters } onSelectFilter={ onSelectFilter } />
+            <ProjectList dataElements={ dataElements } />
         </>
     );
-}
+};
