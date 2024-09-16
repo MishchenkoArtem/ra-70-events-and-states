@@ -1,14 +1,12 @@
 import './App.css';
-import './components/Toolbar/toolbar.css';
-import './components/portfolio/portfolio.css';
-import './components/ProjectList/projectList.css';
+import './components/IconSwitch/IconSwitch';
 
-import Portfolio from './components/portfolio/Portfolio';
+import Store from './components/Store/Store';
 
 function App() {
     return (
         <div className="page">
-            <Portfolio />
+            <Store />
         </div>
     );
 }
