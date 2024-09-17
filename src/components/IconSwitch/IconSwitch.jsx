@@ -1,10 +1,12 @@
 export default function IconSwitch ({ icon, onSwitch }) {
     return (
-        <button 
-            className="material-icons"
-            onClick={onSwitch}
-        >
-            {icon.icon}
-        </button>
+        <div className="material__container">
+            <span 
+                className="material-icons"
+                onClick={onSwitch}
+            >
+                {icon.icon}
+            </span>
+        </div>
     );
 };

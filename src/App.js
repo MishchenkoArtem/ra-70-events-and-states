@@ -1,5 +1,6 @@
 import './App.css';
-import './components/IconSwitch/IconSwitch';
+import './components/IconSwitch/iconSwitch.css';
+import './components/CardsView/cardsView.css';
 
 import Store from './components/Store/Store';
 

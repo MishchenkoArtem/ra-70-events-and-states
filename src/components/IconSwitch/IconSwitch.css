@@ -1,0 +1,12 @@
+.material__container {
+    padding-top: 30px;
+    min-width: 1000px;
+    display: flex;
+    justify-content: end;
+}
+
+.material-icons {
+    display: block;
+    font-size: 34px;
+    cursor: pointer;
+}
