@@ -1,13 +1,11 @@
 import './App.css';
-import './components/IconSwitch/iconSwitch.css';
-import './components/CardsView/cardsView.css';
 
-import Store from './components/Store/Store';
+import DropdownList from './components/DropdownList.jsx';
 
 function App() {
     return (
         <div className="page">
-            <Store />
+            <DropdownList />
         </div>
     );
 }
